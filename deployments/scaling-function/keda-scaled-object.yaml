@@ -32,7 +32,7 @@ spec:
     name: queuetrigger-function # https://keda.sh/docs/2.0/migration/
     connectionFromEnv: 
   pollingInterval: 5
-  cooldownPeriod: 30
+  cooldownPeriod: 10
   minReplicaCount: 0
   maxReplicaCount: 10
   triggers:
