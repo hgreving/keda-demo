@@ -1,0 +1,46 @@
+#https://keda.sh/docs/2.0/concepts/authentication/#re-use-credentials-and-delegate-auth-with-triggerauthentication
+apiVersion: keda.sh/v1alpha1
+kind: TriggerAuthentication
+metadata:
+  name: azure-queue-auth
+  namespace: demo
+spec:
+  secretTargetRef:
+  - parameter: connection
+    name: azure-queue-secret
+    key: StorageConnectionString
+
+---
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: azure-queue-secret
+  namespace: demo
+stringData:
+  StorageConnectionString: "AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;DefaultEndpointsProtocol=http;BlobEndpoint=http://host.docker.internal:10000/devstoreaccount1;QueueEndpoint=http://host.docker.internal:10001/devstoreaccount1;TableEndpoint=http://host.docker.internal:10002/devstoreaccount1;"
+
+---
+
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: queue-scaledobject
+  namespace: demo
+spec:
+  scaleTargetRef:
+    name: queuetrigger-function # https://keda.sh/docs/2.0/migration/
+    connectionFromEnv: 
+  pollingInterval: 5
+  cooldownPeriod: 30
+  minReplicaCount: 0
+  maxReplicaCount: 10
+  triggers:
+  - type: azure-queue
+    metadata:
+      queueName: demo-scaling-items
+      queueLength: '5'
+      direction: in
+    authenticationRef:
+      name: azure-queue-auth
+

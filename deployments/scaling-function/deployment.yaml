@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: queuetrigger-function
+  name: queuetrigger-function
+  namespace: demo
+spec:
+  selector:
+    matchLabels:
+      app: queuetrigger-function
+  template:
+    metadata:
+      labels:
+        app: queuetrigger-function
+    spec:
+      containers:
+      - name: queuetrigger-function
+        image: scaling/queuetrigger-function:latest
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        imagePullPolicy: Never
+        envFrom:
+        - configMapRef:
+            name: queuetrigger-function-config
+       
+      tolerations:
+      - operator: Exists

@@ -1,0 +1,78 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
+MinimumVisualStudioVersion = 15.0.26124.0
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7FBA11E2-5243-4B42-9A8E-AFFEB4128FD6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scaling.Function", "src\Scaling.Function\Scaling.Function.csproj", "{DEF436F0-325D-4A12-9D81-9B12CC64DA3F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scaling.QueueFillApp", "src\Scaling.QueueFillApp\Scaling.QueueFillApp.csproj", "{12F2F816-8147-4B2B-BA5C-CE654AE8E46C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deployments", "deployments", "{35FCFC54-EDAE-44B4-B31A-908BD27FA7A2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scaling-function", "scaling-function", "{92C3E910-367D-45A4-AF84-B37BDDFB9E3D}"
+	ProjectSection(SolutionItems) = preProject
+		deployments\scaling-function\apply-keda.sh = deployments\scaling-function\apply-keda.sh
+		deployments\scaling-function\configmap.yaml = deployments\scaling-function\configmap.yaml
+		deployments\scaling-function\delete-keda.sh = deployments\scaling-function\delete-keda.sh
+		deployments\scaling-function\deploy.sh = deployments\scaling-function\deploy.sh
+		deployments\scaling-function\deployment.yaml = deployments\scaling-function\deployment.yaml
+		deployments\scaling-function\keda-scaled-object.yaml = deployments\scaling-function\keda-scaled-object.yaml
+		deployments\scaling-function\remove.sh = deployments\scaling-function\remove.sh
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "keda", "keda", "{338C78D6-0EB1-42D1-BA81-028A4D4262F7}"
+	ProjectSection(SolutionItems) = preProject
+		deployments\scaling-function\keda\00-namespace.yaml = deployments\scaling-function\keda\00-namespace.yaml
+		deployments\scaling-function\keda\01-service_account.yaml = deployments\scaling-function\keda\01-service_account.yaml
+		deployments\scaling-function\keda\10-cluster_role.yaml = deployments\scaling-function\keda\10-cluster_role.yaml
+		deployments\scaling-function\keda\11-role_binding.yaml = deployments\scaling-function\keda\11-role_binding.yaml
+		deployments\scaling-function\keda\12-operator.yaml = deployments\scaling-function\keda\12-operator.yaml
+		deployments\scaling-function\keda\20-metrics-cluster_role.yaml = deployments\scaling-function\keda\20-metrics-cluster_role.yaml
+		deployments\scaling-function\keda\21-metrics-role_binding.yaml = deployments\scaling-function\keda\21-metrics-role_binding.yaml
+		deployments\scaling-function\keda\22-metrics-deployment.yaml = deployments\scaling-function\keda\22-metrics-deployment.yaml
+		deployments\scaling-function\keda\23-metrics-service.yaml = deployments\scaling-function\keda\23-metrics-service.yaml
+		deployments\scaling-function\keda\24-metrics-api_service.yaml = deployments\scaling-function\keda\24-metrics-api_service.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "crds", "crds", "{A129D650-3449-4435-93F3-601B0C374497}"
+	ProjectSection(SolutionItems) = preProject
+		deployments\scaling-function\keda\crds\keda.k8s.io_scaledobjects_crd.yaml = deployments\scaling-function\keda\crds\keda.k8s.io_scaledobjects_crd.yaml
+		deployments\scaling-function\keda\crds\keda.k8s.io_triggerauthentications_crd.yaml = deployments\scaling-function\keda\crds\keda.k8s.io_triggerauthentications_crd.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6BB3C535-CD75-4132-9271-29825E786AB9}"
+	ProjectSection(SolutionItems) = preProject
+		AddMessagesLoop.ps1 = AddMessagesLoop.ps1
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DEF436F0-325D-4A12-9D81-9B12CC64DA3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEF436F0-325D-4A12-9D81-9B12CC64DA3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEF436F0-325D-4A12-9D81-9B12CC64DA3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEF436F0-325D-4A12-9D81-9B12CC64DA3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12F2F816-8147-4B2B-BA5C-CE654AE8E46C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12F2F816-8147-4B2B-BA5C-CE654AE8E46C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12F2F816-8147-4B2B-BA5C-CE654AE8E46C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12F2F816-8147-4B2B-BA5C-CE654AE8E46C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DEF436F0-325D-4A12-9D81-9B12CC64DA3F} = {7FBA11E2-5243-4B42-9A8E-AFFEB4128FD6}
+		{12F2F816-8147-4B2B-BA5C-CE654AE8E46C} = {7FBA11E2-5243-4B42-9A8E-AFFEB4128FD6}
+		{92C3E910-367D-45A4-AF84-B37BDDFB9E3D} = {35FCFC54-EDAE-44B4-B31A-908BD27FA7A2}
+		{338C78D6-0EB1-42D1-BA81-028A4D4262F7} = {92C3E910-367D-45A4-AF84-B37BDDFB9E3D}
+		{A129D650-3449-4435-93F3-601B0C374497} = {338C78D6-0EB1-42D1-BA81-028A4D4262F7}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {71744ADF-18AD-460D-AD9A-67A32544E0CD}
+	EndGlobalSection
+EndGlobal

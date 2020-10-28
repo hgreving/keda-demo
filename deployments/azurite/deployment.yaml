@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: azurite-k8s
+  name: azurite-k8s-deployment
+  namespace: demo
+spec:
+  selector:
+    matchLabels:
+      app: azurite-k8s
+  template:
+    metadata:
+      labels:
+        app: azurite-k8s
+    spec:
+      containers:
+      - name: azurite-k8s
+        image: azurite-k8s:latest
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        imagePullPolicy: Never
+      tolerations:
+      - operator: Exists
