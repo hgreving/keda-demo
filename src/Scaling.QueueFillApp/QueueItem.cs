@@ -6,5 +6,7 @@ namespace Scaling.QueueFillApp
     public class QueueItem
     {
         public string Message { get; set; }
+
+        public int Duration { get; set; } = 5000;
     }
 }

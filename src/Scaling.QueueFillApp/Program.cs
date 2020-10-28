@@ -7,39 +7,46 @@ namespace Scaling.QueueFillApp
 {
     class Program
     {
-        // docker run -p 8888:8888 -p 9999:9999 -v c:/azurite:/workspace mcr.microsoft.com/azure-storage/azurite azurite -l /workspace -d /workspace/debug.log --blobPort 8888 --blobHost 0.0.0.0 --queuePort 9999 --queueHost 0.0.0.0 --loose --skipApiVersionCheck
-        // ipconfig -> use local ip here, localhost won't work!
         private const string ConnectionString = "DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;";
 
         private const string QueueName = "demo-scaling-items";
 
         static void Main(string[] args)
         {
-            //Console.WriteLine($"How many messages do you want to submit to the queue {QueueName}?");
+            if (args.Length < 1) 
+            {
+                Console.WriteLine($"Please specify the number of message and optional a duration in seconds.");
+                return;
+            }
+            
+            int? duration = null;
+            if (args.Length == 2)
+            {
+                if (int.TryParse(args[1], out var parsedDuration))
+                {
+                    duration = parsedDuration * 1000;
+                }
+            }
 
-            //var input = Console.ReadLine();
-            var input = args[0];
             var count = 0;
-            if (int.TryParse(input, out var nrOfMessages)) 
+            if (int.TryParse(args[0], out var nrOfMessages)) 
             {
                 while (count++ < nrOfMessages)
                 {
                     var msg = $"Message {count}";
-                    AddMessage(msg);
+                    AddMessage(msg, duration);
                     Console.WriteLine($"{msg} added to queue {QueueName}");
                 }
             }
-            
-            // Console.ReadLine();
         }
 
-        private static void AddMessage(string msg)
+        private static void AddMessage(string msg, int? duration)
         {
             //var connectionString = Environment.GetEnvironmentVariable("STORAGE_CONNECTIONSTRING");
 
             var queue = new QueueClient(ConnectionString, QueueName);
             queue.Create();
-            var item = new QueueItem { Message = msg };
+            var item = new QueueItem { Message = msg, Duration = duration ?? 5000 };
             queue.SendMessage(GetMessageContent(item));
         }
 
