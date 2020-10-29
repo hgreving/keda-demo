@@ -6,9 +6,10 @@ open chrome tab with: https://keda.sh/docs/2.0/scalers/azure-storage-queue/#exam
 open terminal with: cd C:\Projects\Demos\Scaling\src\Scaling.QueueFillApp (dotnet run 1000)
 use demo as the default namespace: kubectl config set-context --current --namespace demo
 run storage emulator
-open terminal with: kubectl get deploy -w -n demo
+open terminal with: kubectl get hpa -w -n demo
 open terminal with: kubectl get pods -w -n demo
 open code with folder C:\Projects\Demos\Scaling\
+Split: ALT + SHIFT + D
 
 Demo Keda - use a function with KEDA to handle fluctuations in Event-driven workloads
 
