@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   labels:
     app: queuetrigger-function
+    version: demo-v3
   name: queuetrigger-function
   namespace: demo
 spec:
@@ -16,7 +17,7 @@ spec:
     spec:
       containers:
       - name: queuetrigger-function
-        image: scaling/queuetrigger-function:demo
+        image: scaling:demo-v3
         resources:
           requests:
             memory: "64Mi"
