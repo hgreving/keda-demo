@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: queuetrigger-function
-        image: scaling/queuetrigger-function:latest
+        image: scaling/queuetrigger-function:demo
         resources:
           requests:
             memory: "64Mi"
