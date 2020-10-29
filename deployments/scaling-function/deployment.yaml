@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: queuetrigger-function
-        image: scaling:demo-v4
+        image: localhost:5000/scaling:demo-v4
         resources:
           requests:
             memory: "64Mi"
@@ -25,7 +25,7 @@ spec:
           limits:
             memory: "128Mi"
             cpu: "500m"
-        imagePullPolicy: Never
+        #imagePullPolicy: Never
         envFrom:
         - configMapRef:
             name: queuetrigger-function-config

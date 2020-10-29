@@ -30,6 +30,10 @@ https://keda.sh/docs/2.0/scalers/azure-storage-queue/#example
 
 Show the example how you can configure the scaler.
 
-
-
+Create new function version
+stop functions in k8s remove.sh
+docker build -t scaling:demo-v5 .
+docker tag scaling:demo-v5 localhost:5000/scaling:demo-v5 
+docker push localhost:5000/scaling:demo-v5
+start functions in k8s deploy.sh
 
