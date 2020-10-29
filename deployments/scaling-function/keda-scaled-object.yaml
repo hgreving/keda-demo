@@ -31,10 +31,10 @@ spec:
   scaleTargetRef:
     name: queuetrigger-function # https://keda.sh/docs/2.0/migration/
     connectionFromEnv: 
-  pollingInterval: 5
-  cooldownPeriod: 10
+  pollingInterval: 1
+  cooldownPeriod: 30
   minReplicaCount: 0
-  maxReplicaCount: 10
+  maxReplicaCount: 5
   triggers:
   - type: azure-queue
     metadata:
