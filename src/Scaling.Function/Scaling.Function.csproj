@@ -2,15 +2,12 @@
   <PropertyGroup>
 	<TargetFramework>netcoreapp3.1</TargetFramework>
     <AzureFunctionsVersion>v3</AzureFunctionsVersion>
-	<RuntimeIdentifiers>linux-x64</RuntimeIdentifiers>
+	  <RuntimeIdentifiers>linux-x64</RuntimeIdentifiers>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="..\Scaling.QueueFillApp\QueueItem.cs" Link="QueueItem.cs" />
-  </ItemGroup>
-  <ItemGroup>
-	<PackageReference Include="Microsoft.Azure.WebJobs.Extensions.Storage" Version="4.0.3" />
+	  <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.Storage" Version="4.0.3" />
     <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="3.0.9" />
-	<PackageReference Include="System.Net.NameResolution" Version="4.3.0" />
+	  <PackageReference Include="System.Net.NameResolution" Version="4.3.0" />
   </ItemGroup>
   <ItemGroup>
     <None Update="host.json">

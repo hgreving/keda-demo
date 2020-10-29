@@ -2,9 +2,8 @@ using System.Threading;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using Scaling.QueueFillApp;
 
-namespace Scaling.QueueTriggers.Function
+namespace Scaling.Function
 {
     public static class QueueTriggerFunction
     {
