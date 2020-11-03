@@ -1,11 +1,5 @@
 #!/bin/bash
 
-# Install Keda on cluster
-#.\apply-keda.sh
-
-# Switch to local cluster
-kubectl config use-context docker-desktop
-
 # Delete KEDA queue trigger
 kubectl delete -f keda-scaled-object.yaml
 
