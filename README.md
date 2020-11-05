@@ -32,11 +32,11 @@ Go to the folder Scaling.Function and run:
 Go to the folder Scaling.QueueFillApp and run `dotnet run 10 20`
 This command will add 10 message to the queue with. Each message durations is 20 seconds. The default duration is 5 seconds. 
 
-# Check that there are pods active
+## Check that there are pods active
 `kubectl get pods -n demo`
 
-# Remove the demo scaling function from your K8s cluster
+## Remove the demo scaling function from your K8s cluster
 - Use deployments/scaling-function/remove.sh to remove the scaling-function from your K8s cluster.
 
-# Remove Keda on your K8s cluster
+## Remove Keda on your K8s cluster
 - Use deployments/scaling-function/remove-keda.sh to remove KEDA from your K8s cluster.
