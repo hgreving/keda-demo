@@ -1,5 +1,4 @@
-# keda-demo
-KEDA  Azure Storage Queue demo
+# KEDA  Azure Storage Queue demo
 
 ## Prerequisites
 - Working K8s cluster
