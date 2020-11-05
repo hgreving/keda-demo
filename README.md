@@ -1,11 +1,12 @@
 # KEDA  Azure Storage Queue demo
+For more information about KEDA: https://keda.sh/
 
 ## Prerequisites
 - Working K8s cluster
 - Microsoft Storage Emulator
 - Local docker registry: https://www.quickdevnotes.com/hosting-first-private-docker-registry/
 
-## Apply Keda on your K8s cluster
+## Apply KEDA on your K8s cluster
 - Use deployments/scaling-function/apply-keda.sh to install KEDA on your K8s cluster.
 
 ## Build docker image
@@ -37,5 +38,5 @@ This command will add 10 message to the queue with. Each message durations is 20
 ## Remove the demo scaling function from your K8s cluster
 - Use deployments/scaling-function/remove.sh to remove the scaling-function from your K8s cluster.
 
-## Remove Keda on your K8s cluster
+## Remove KEDA from your K8s cluster
 - Use deployments/scaling-function/remove-keda.sh to remove KEDA from your K8s cluster.
