@@ -30,7 +30,7 @@ Use deployments/scaling-function/deploy.sh to install the scaling-function on yo
 
 ## Add messages to Azure storage queue: 'demo-scaling-items'
 Go to the folder Scaling.QueueFillApp and run `dotnet run 10 20`
-This command will add 10 message to the queue with. Each message durations is 20 seconds. The default duration is 5 seconds. 
+This command will add 10 messages to the queue with a duration of 20 seconds per message. The default duration is 5 seconds. 
 
 ## Check that there are pods active
 `kubectl get pods -n demo`
