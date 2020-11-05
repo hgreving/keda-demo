@@ -42,8 +42,6 @@ namespace Scaling.QueueFillApp
 
         private static void AddMessage(string msg, int? duration)
         {
-            //var connectionString = Environment.GetEnvironmentVariable("STORAGE_CONNECTIONSTRING");
-
             var queue = new QueueClient(ConnectionString, QueueName);
             queue.Create();
             var item = new QueueItem { Message = msg, Duration = duration ?? 5000 };
